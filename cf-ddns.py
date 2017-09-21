@@ -22,9 +22,12 @@ except ImportError:
     from urllib2 import URLError
 
 import json
+import os
 
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-config_file_name = 'cf-ddns.conf'
+config_file_name = os.path.join(__location__, 'cf-ddns.conf')
 
 with open(config_file_name, 'r') as config_file:
     try:
